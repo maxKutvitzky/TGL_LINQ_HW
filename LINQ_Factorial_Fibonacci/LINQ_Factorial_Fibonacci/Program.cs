@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace LINQ_Factorial_Fibonacci
+foreach (int item in FactorialUsingLinq(10))
 {
-    internal class Program
+    Console.Write(item+" ");
+}
+
+static List<int> FactorialUsingLinq(int range)
+{
+    int temp = 1;
+    var result = Enumerable.Range(1, range).Select(number =>
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
+        temp = temp * number;
+        return temp;
+    });
+    return result.ToList();
 }
